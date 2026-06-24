@@ -1,0 +1,6 @@
+# Built pack artifact (only source is tracked; the zip is produced by build.ps1).
+*.zip
+
+# Python generator bytecode (the .py theme generators are tracked source).
+__pycache__/
+*.pyc
