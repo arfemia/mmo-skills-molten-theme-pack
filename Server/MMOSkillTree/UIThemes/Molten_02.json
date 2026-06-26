@@ -1,0 +1,25 @@
+{
+  "Id": "Molten_02",
+  "Payload": {
+    "id": "molten_02",
+    "displayNameKey": "ui.menu_theme.name.molten_02",
+    "palette": {
+      "primary": "#321a0c",
+      "accent": "#ff7a32",
+      "background": "#1a0b06",
+      "frame": "#c96030",
+      "header": "#321a0c",
+      "divider": "#7a3518",
+      "buttonNeutral": "#c96030",
+      "buttonPositive": "#ff9a52",
+      "buttonClaim": "#ffc24e",
+      "buttonDestructive": "#ff5038",
+      "textPrimary": "#f7e6d6",
+      "textMuted": "#be9e8a",
+      "textureDir": "Common/Molten_02/",
+      "frameBorder": 20,
+      "panelBorder": 4
+    },
+    "order": 2
+  }
+}

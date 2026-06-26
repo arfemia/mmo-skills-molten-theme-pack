@@ -1,9 +1,11 @@
-# MMO Skill Tree - Molten / Obsidian Veins (premium menu theme)
+# MMO Skill Tree - Molten (premium menu themes)
 
 A premium menu theme pack for the [MMO Skill Tree](https://mmo-skill-tree-docs.ziggfreed.com/)
 Hytale mod. Reskins the in-game menu with a fiery obsidian palette and bespoke
-9-slice frame art. This is the first premium theme `.zip` product; it ships ONLY
-art + theme data and needs no jar change.
+9-slice frame art. Ships **two** menu themes from one cohesive crimson-lava family:
+**Molten** (obsidian veins - a thin glowing rim + faint deep veins) and **Molten Flow**
+(a wide flowing lava band hugging the frame). This is the first premium theme `.zip`
+product; it ships ONLY art + theme data and needs no jar change.
 
 ## Gating (fail-closed)
 
@@ -15,19 +17,21 @@ in the pack.
 
 ## What it ships
 
-- `Server/MMOSkillTree/UIThemes/Molten.json` - the theme: a full palette
-  (frame / ornaments / per-state buttons) plus a `textureDir` pointing at the
-  bespoke 9-slice art below. It overrides the mod's baked-in Molten **recolor**
-  teaser (precedence `defaults < pack < owner`), upgrading it from a pure colour
-  recolor to the textured art tier.
+- `Server/MMOSkillTree/UIThemes/Molten.json` + `Molten_02.json` - the two themes:
+  each a full palette (frame / ornaments / per-state buttons) plus a `textureDir`
+  pointing at its bespoke 9-slice art below. Each overrides the mod's baked-in
+  same-id **recolor** teaser (precedence `defaults < pack < owner`), upgrading it
+  from a pure colour recolor to the textured art tier.
 - `Server/MMOSkillTree/Control/MMOSkillMoltenTheme.json` - declares `UIThemes: add`
-  (merge this theme into the mod's themes, do not replace).
-- `Common/UI/Custom/Common/Molten/*.png` - the bespoke 9-slice frame / panel /
-  button / ornament textures (generated; see the in-pack generator + README).
+  (merge these themes into the mod's themes, do not replace). It merges the whole
+  `UIThemes/` folder, so both `Molten.json` and `Molten_02.json` are picked up.
+- `Common/UI/Custom/Common/Molten/*.png` + `Molten_02/*.png` - the bespoke 9-slice
+  frame / panel / button / ornament textures for each theme (generated; see each
+  theme's in-pack generator + README).
 
-The theme name resolves through the mod's existing localization key
-`ui.menu_theme.name.molten` (shipped in the jar for all locales), so the pack
-ships no `.lang`.
+The theme names resolve through the mod's existing localization keys
+`ui.menu_theme.name.molten` / `ui.menu_theme.name.molten_02` (shipped in the jar
+for all locales), so the pack ships no `.lang`.
 
 ## Tiers (what actually paints, and what is in-game-verify)
 
