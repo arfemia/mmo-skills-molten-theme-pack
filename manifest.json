@@ -2,7 +2,7 @@
   "Group": "Ziggfreed",
   "Name": "MMOSkillMoltenTheme",
   "Version": "1.0.0",
-  "Description": "Molten / Obsidian Veins - a premium menu theme for the MMO Skill Tree. Reskins the in-game menu with a fiery obsidian palette and bespoke 9-slice frame art. Requires an active Pro entitlement (CUSTOM_MENU_UI) to paint; loads harmlessly to the free default without one.",
+  "Description": "Molten / Obsidian Veins - a premium menu theme for the MMO Skill Tree. Reskins the in-game menu with a fiery obsidian palette and bespoke 9-slice frame art. Requires an active Pro entitlement (WHITE_LABEL) to paint; loads harmlessly to the free default without one.",
   "Authors": [{ "Name": "ZiggFreed" }],
   "Website": "https://mmo-skill-tree-docs.ziggfreed.com/",
   "ServerVersion": ">=0.5.0-pre.0 <0.6.0",

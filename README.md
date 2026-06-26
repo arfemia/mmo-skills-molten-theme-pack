@@ -8,7 +8,7 @@ art + theme data and needs no jar change.
 ## Gating (fail-closed)
 
 Applying any non-default theme requires an active **Pro** entitlement
-(`CUSTOM_MENU_UI`) on the server. Without it the pack loads harmlessly and the
+(`WHITE_LABEL`, the Pro Edition plan marker) on the server. Without it the pack loads harmlessly and the
 menu paints the free default (Verdant): a leaked `.zip` is a no-op without Pro.
 The gate lives entirely in the mod (`UIThemeConfig.getEffectivePalette()`), never
 in the pack.
