@@ -31,7 +31,7 @@ $version = (Get-Content (Join-Path $pack 'manifest.json') -Raw | ConvertFrom-Jso
 if (-not $version) { throw 'manifest.json is missing a Version field' }
 $ZipName = "$PackName-$version.zip"
 $zipPath = Join-Path $pack $ZipName
-$excludeNames = @('README.md', 'CURSEFORGE.md', 'CLAUDE.md', 'LICENSE', '.gitignore', 'build.ps1') + $ExtraExcludeNames
+$excludeNames = @('README.md', 'CURSEFORGE.md', 'CLAUDE.md', 'LICENSE', '.gitignore', 'build.ps1', 'icon-400.png') + $ExtraExcludeNames
 $excludeDirs  = @('.git', '.github', 'patch-notes') + $ExtraExcludeDirs
 
 # Remove any prior zip for this pack (old non-versioned name or older versions).
