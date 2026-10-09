@@ -45,8 +45,22 @@ from PIL import Image, ImageFilter
 # Paths (shared across every molten-family theme; OUT is per-theme, set by
 # configure() from the caller's params).
 # ----------------------------------------------------------------------------
-REPO = "d:/dev/business/hyMMO"
-SRC_COMMON = os.path.join(REPO, "hytale-shared-source/HytaleAssets/Common/UI/Custom/Common")
+# _themegen/ -> Common/ -> Custom/ -> UI/ -> Common/ -> molten-theme-pack/ -> content-packs/ -> hyMMO/
+REPO = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), *[".."] * 7))
+
+
+def _shared_source():
+    """The workspace's shared-source/release clone, beside hyMMO: the first folder above REPO that holds
+    one, so the main checkout and a linked worktree under worktrees/ both find it."""
+    here = REPO
+    while os.path.dirname(here) != here:
+        here = os.path.dirname(here)
+        if os.path.isdir(os.path.join(here, "shared-source", "release")):
+            return os.path.join(here, "shared-source", "release")
+    return os.path.join(os.path.dirname(REPO), "shared-source", "release")
+
+
+SRC_COMMON = os.path.join(_shared_source(), "HytaleAssets/Common/UI/Custom/Common")
 SRC_TOAST = os.path.join(REPO, "src/main/resources/Common/UI/Custom/Pages/MmoToastFrame@2x.png")
 
 # ----------------------------------------------------------------------------

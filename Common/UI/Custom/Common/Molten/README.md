@@ -27,7 +27,7 @@ The Python tooling (both per-theme scripts and the shared `_themegen/` engine) i
 dev-only and excluded from the shipped jar; only the `@2x.png` art ships.
 
 Sources are read from the in-repo official Hytale Shared Source
-(`hytale-shared-source/HytaleAssets/Common/UI/Custom/Common/`) plus the mod's own
+(`shared-source/release/HytaleAssets/Common/UI/Custom/Common/`) plus the mod's own
 `MmoToastFrame@2x.png`. Only the alpha channel of each source is used (for the
 silhouette + 9-slice metrics); the RGB is fully synthesized.
 

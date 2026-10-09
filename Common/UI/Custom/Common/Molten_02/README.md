@@ -29,7 +29,7 @@ except `patch_style="band"` and the two band tunables (`patch_glow_radius=4.2`,
 from the shipped jar/zip; only the `@2x.png` art ships.
 
 Sources are read from the in-repo official Hytale Shared Source
-(`hytale-shared-source/HytaleAssets/Common/UI/Custom/Common/`) plus the mod's own
+(`shared-source/release/HytaleAssets/Common/UI/Custom/Common/`) plus the mod's own
 `MmoToastFrame@2x.png`. Only the alpha channel of each source is used (for the
 silhouette + 9-slice metrics); the RGB is fully synthesized. The source -> output
 map is identical to [Molten](../Molten/README.md#source---output-map).
