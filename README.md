@@ -54,7 +54,7 @@ for all locales), so the pack ships no `.lang`.
 .\build.ps1 -Install:$false  # build only
 ```
 
-Or from the monorepo root: `.\rebuild.ps1 -Packs molten`.
+Or from `mmo-family/mmo-skills`: `.\rebuild.ps1 -Packs molten`.
 
 ## Requirements
 
