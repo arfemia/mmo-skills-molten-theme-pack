@@ -45,19 +45,47 @@ from PIL import Image, ImageFilter
 # Paths (shared across every molten-family theme; OUT is per-theme, set by
 # configure() from the caller's params).
 # ----------------------------------------------------------------------------
-# _themegen/ -> Common/ -> Custom/ -> UI/ -> Common/ -> molten-theme-pack/ -> content-packs/ -> hyMMO/
-REPO = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), *[".."] * 7))
+HERE = os.path.dirname(os.path.abspath(__file__))
+
+
+def _ancestors():
+    """Every folder above this script, nearest first."""
+    here = HERE
+    while os.path.dirname(here) != here:
+        here = os.path.dirname(here)
+        yield here
+
+
+def _mmo_skills():
+    """The MMO repo: <root>/<repo.mmo-skills>, where root is the nearest folder above this script holding
+    family.properties (the workspace, or a tree under worktrees/); outside a workspace, mmo-skills/
+    under the working folder."""
+    for root in _ancestors():
+        props = os.path.join(root, "family.properties")
+        if os.path.isfile(props):
+            with open(props, encoding="utf-8") as f:
+                for line in f:
+                    key, sep, value = line.partition("=")
+                    if sep and key.strip() == "repo.mmo-skills":
+                        return os.path.normpath(os.path.join(root, value.strip()))
+            break
+    return "mmo-skills"
+
+
+REPO = _mmo_skills()
 
 
 def _shared_source():
-    """The workspace's shared-source/release clone, beside hyMMO: the first folder above REPO that holds
-    one, so the main checkout and a linked worktree under worktrees/ both find it."""
-    here = REPO
-    while os.path.dirname(here) != here:
-        here = os.path.dirname(here)
-        if os.path.isdir(os.path.join(here, "shared-source", "release")):
-            return os.path.join(here, "shared-source", "release")
-    return os.path.join(os.path.dirname(REPO), "shared-source", "release")
+    """The shared source: the first folder above this script holding reference/shared-source/release (a
+    tree holds none, so the walk passes its root up to main's), else the first holding
+    shared-source/release (the layout before the un-nest), else the first marker, relative to the
+    working folder."""
+    markers = (os.path.join("reference", "shared-source", "release"), os.path.join("shared-source", "release"))
+    for marker in markers:
+        for folder in _ancestors():
+            if os.path.isdir(os.path.join(folder, marker)):
+                return os.path.join(folder, marker)
+    return markers[0]
 
 
 SRC_COMMON = os.path.join(_shared_source(), "HytaleAssets/Common/UI/Custom/Common")
